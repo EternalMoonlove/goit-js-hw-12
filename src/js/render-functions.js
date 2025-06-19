@@ -11,7 +11,6 @@ let lightbox = new SimpleLightbox('.gallery a', {
 
 export function createGallery(images) {
   if (!Array.isArray(images) || images.length === 0) {
-    galleryEl.innerHTML = '';
     lightbox.refresh();
     return;
   }
@@ -42,7 +41,7 @@ export function createGallery(images) {
     )
     .join('');
 
-  galleryEl.innerHTML = markup;
+  galleryEl.insertAdjacentHTML('beforeend', markup);
   lightbox.refresh();
 }
 
